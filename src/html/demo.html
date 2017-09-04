@@ -1,0 +1,125 @@
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title id="title">hourglass</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" type="text/css" href="../css/hourglass.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <style type="text/css">
+      .inner_num{
+        color: #fff;
+        text-align: center;
+        display: block;
+        position: absolute;
+        font-size: 40px;
+        top: 20%;
+        left: 40%;
+        z-index: 999;
+      }
+    </style>
+</head>
+<body>
+
+   <div id="hourglass1"></div>
+   <div id="hourglass2"></div>
+   <div id="hourglass3"></div>
+   <div id="hourglass4"></div>
+   <div id="hourglass5"></div>
+   <div id="hourglass6"></div>
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/hourglass.js"></script>
+<script type="text/javascript">
+
+    var el1=document.getElementById("hourglass1");
+    var hourglass1=new Hourglass(el1,{
+      color:"rgb(44, 127, 190)",
+      width:200,
+      height:400,
+      waterTop:50,       //顶部水深，范围：0-100
+      waterBottom:50,    //底部水深，范围：0-100
+      waveSpeed:2000,   //波浪速度 毫秒
+      allowDrip:true,   //开启沙漏滴水
+      dripSpeed:2000,    //水滴速度，allowDrop开启时生效
+      stopWave:false      //禁止水波滚动
+    });
+
+
+    var el2=document.getElementById("hourglass2");
+    var hourglass2=new Hourglass(el2,{
+      color:"#ff0000",
+      width:200,
+      height:400,
+      waterTop:20,       
+      waterBottom:80,    
+      waveSpeed:5000   
+    });
+
+    var el3=document.getElementById("hourglass3");
+    var hourglass3=new Hourglass(el3,{
+      color:"#ffff00",
+      width:200,
+      height:400,
+      waterTop:60,       
+      waterBottom:40,    
+      waveSpeed:1000   
+    });
+
+
+
+    var el4=document.getElementById("hourglass4");
+    var el4_waveSpeed=1000;
+    var hourglass4=new Hourglass(el4,{
+      color:"#00ff00",
+      width:200,
+      height:400,
+      waterTop:100,       
+      waterBottom:"0",    
+      waveSpeed:el4_waveSpeed,
+      allowDrip:true
+    });
+    
+    var _num=$("<span>").addClass("inner_num");
+    $(el4).append(_num);
+    var timer=setInterval(function(){
+
+      var topWater=hourglass4.getWater().top;
+      if(topWater<=0){
+        _num.text("0%");
+        clearInterval(timer);
+        return;
+      }
+      _num.text(topWater+"%");
+    },el4_waveSpeed);
+
+
+
+
+    var el5=document.getElementById("hourglass5");
+    var hourglass5=new Hourglass(el5,{
+      color:"#0000ff",
+      width:200,
+      height:400,
+      waterTop:40,       
+      waterBottom:60,   
+      stopWave:true  
+    });
+
+    var el6=document.getElementById("hourglass6");
+    var hourglass6=new Hourglass(el6,{
+      color:"#c60",
+      width:200,
+      height:400,
+      waterTop:50,       
+      waterBottom:60,
+      waveSpeed:5000  
+    });
+
+
+
+</script>
+</body>
+</html>

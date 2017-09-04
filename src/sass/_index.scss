@@ -1,0 +1,287 @@
+$primary:rgb(44, 127, 190);
+
+$blue-dark:        #1E384C;
+$blue:             #2C7FBE;
+$blue-light:       #32BAFA;
+$green:            #02C39A;
+
+$stage-bg:           $blue-dark;
+
+$HourglassColor:#d8d8d8;
+$HourglassWidth:3px;
+
+.hourglass-content{
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
+  background-color: #fff;
+  position: relative;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 2px 2px 5px #999;
+}
+
+// 创造线
+.create-line{
+  position: absolute;
+  width: 200%;
+  height: 51%;
+  border: $HourglassWidth solid $HourglassColor;
+}
+
+.hourglass-box{
+  // margin: 50px;
+  position: relative;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+
+  *, *::after, *::before {
+    box-sizing: border-box; 
+  }
+
+  svg {
+    fill: currentColor;
+  }
+  
+  // 左右两边的线
+  $lingMargin:18px;
+  .line-left,.line-right{
+    width:50%;
+    position: absolute;
+    height: 100%;
+    top: 0px;;
+    overflow: hidden;
+    &:before,&:after{
+      content: "";
+    }
+  }
+  .line-left{
+    left: -$lingMargin;
+    &:before{
+      top: 0;
+      border-radius: 25% 25% 50% 50%;
+      margin:-10px auto 0;
+      left:15%;
+      @extend .create-line;
+    }
+    &:after{
+      bottom: 0;
+      border-radius:50% 50% 25% 25%;
+      margin:0 auto -10px;
+      left:15%;
+      @extend .create-line;
+    }
+  }
+  .line-right{
+    left: 50%;
+    margin-left: $lingMargin;
+    &:before{
+      top: 0;
+      border-radius: 25% 25% 50% 50%;
+      margin:-10px auto 0;
+      right: 15%;
+      @extend .create-line;
+    }
+    &:after{
+      bottom: 0;
+      border-radius:50% 50% 25% 25%;
+      margin:0 auto -10px;
+      right: 15%;
+      @extend .create-line;
+    }
+  }
+
+  // 中间的线
+  .line-center{
+    width: 36px;
+    height: 20px;
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    margin-left: -18px;
+    margin-top: -10px;
+      &:before,&:after{
+        content: "";
+        width: 20px;
+        height: 20px;
+        display: block;
+        top: 0;
+        border: 3px solid $HourglassColor;
+        border-radius: 50%;
+        position: absolute;
+      }
+      &:before{
+         left: -13px;
+      }
+      &:after{
+        //  display: none;
+        right: -13px;
+      }
+  }
+
+  // 头部和底部盖子
+  &:before,&:after{
+    content: "";
+     width: 100%;
+     height: 15px;
+     background-color: $HourglassColor;
+     position: absolute;
+     border-radius: 20px;
+     left: 0;
+     z-index: 10;
+  }
+  &:before{
+    top: 0;
+  }
+  &:after{
+     bottom: 0;
+  }
+
+  // 滴水
+  .drip-content{
+    position: absolute;
+    width: 50px;
+    height: 300px;
+    left: 50%;
+    top: 50%;
+    overflow: hidden;
+    border-radius: 50% 50% 0 0;
+    margin-left: -25px;
+    transform: scale(0.8);
+    margin-top: -40px;
+    box-sizing: border-box;
+    padding-bottom: 15px;
+    .drip-box{
+      position: absolute;
+      display: block;
+      width: 100px;
+      left: 50%;
+      top: 20px;
+      margin-top: -20px;
+      margin-left: -50px;
+      svg {
+            filter: url('#goo');
+            }
+        .drop, circle {
+            // fill:#2c7fbe;
+            animation: drop 1s cubic-bezier(0.7, 0, 1, 1) infinite;
+            }
+
+            @keyframes drop {
+            0% {
+              transform: translateY(-75px);
+            }
+            100% {
+              transform: translateY(1000px) scaleY(0.5);
+            }
+        }
+    }
+  }
+  
+  // 上下内容
+  .hourglass-top,.hourglass-bottom{
+    position: absolute;
+    width: 86%;
+    height: 50%;
+    overflow: hidden;
+    left:50%;
+    z-index: 9;
+  }
+  .hourglass-top{
+     border-radius: 30% 30% 50% 50%;
+     margin:-20px auto;
+     margin-left: -43%;
+     top: 5px;
+     margin-bottom: 0;
+  }
+  .hourglass-bottom{
+    border-radius:50% 50% 30% 30%;
+    margin:0 auto;
+    bottom: -15px;
+    margin-left: -43%;
+    display: flex;
+    align-items: flex-end;
+    .waves{
+      bottom: 30px;
+    }
+    .bottom-water{
+      background-color: $primary;
+      width: 100%;
+      height: 1%;
+      margin-bottom: 30px;
+    }
+ }
+ 
+ // 水波
+ .waves {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    transition: .4s transform ease;
+    transform-origin: bottom center;
+
+    @media (min-width: 500px) {
+        border-radius: 5px;
+    }
+}
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: wave 1s linear infinite;
+
+    &--front {
+        z-index: 2;
+        color: $blue-light;
+    }
+
+    &--back {
+        z-index: 1;
+        color: $blue;
+        animation-direction: reverse;
+    }
+}
+
+.water {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    background: currentColor;
+
+    svg {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        right: 0;
+        bottom: 99.9%;
+    }
+}
+.water:first-of-type {
+    transform: translate(-100%,0);
+}
+
+
+@keyframes wave{
+    0% {
+        transform: translate3d(0,0,0);
+    }
+    50% {
+        transform: translate3d(50%,.5em,0);
+    }
+    100% {
+        transform: translate3d(100%,0,0);
+    }
+}
+
+
+}

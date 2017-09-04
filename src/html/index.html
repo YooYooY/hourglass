@@ -1,0 +1,38 @@
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title id="title">hourglass</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" type="text/css" href="../css/hourglass.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    
+</head>
+<body>
+
+   <div id="hourglass"></div>
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/hourglass.js"></script>
+<script type="text/javascript">
+
+    var el=document.getElementById("hourglass");
+    var hourglass1=new Hourglass(el,{
+      color:"rgb(44, 127, 190)",
+      width:200,
+      height:400,
+      waterTop:50,       //顶部水深，范围：0-100
+      waterBottom:50,    //底部水深，范围：0-100
+      waveSpeed:2000,   //波浪速度 毫秒
+      allowDrip:true,   //开启沙漏滴水
+      dripSpeed:2000,    //水滴速度，allowDrop开启时生效
+      stopWave:false      //禁止水波滚动
+    });
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+.hourglass-content {
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
+  background-color: #fff;
+  position: relative;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 2px 2px 5px #999; }
+
+.create-line, .hourglass-box .line-left:before, .hourglass-box .line-left:after, .hourglass-box .line-right:before, .hourglass-box .line-right:after {
+  position: absolute;
+  width: 200%;
+  height: 51%;
+  border: 3px solid #d8d8d8; }
+
+.hourglass-box {
+  position: relative; }
+  .hourglass-box *, .hourglass-box *::after, .hourglass-box *::before {
+    -moz-box-sizing: border-box;
+         box-sizing: border-box; }
+  .hourglass-box svg {
+    fill: currentColor; }
+  .hourglass-box .line-left, .hourglass-box .line-right {
+    width: 50%;
+    position: absolute;
+    height: 100%;
+    top: 0px;
+    overflow: hidden; }
+    .hourglass-box .line-left:before, .hourglass-box .line-left:after, .hourglass-box .line-right:before, .hourglass-box .line-right:after {
+      content: ""; }
+  .hourglass-box .line-left {
+    left: -18px; }
+    .hourglass-box .line-left:before {
+      top: 0;
+      border-radius: 25% 25% 50% 50%;
+      margin: -10px auto 0;
+      left: 15%; }
+    .hourglass-box .line-left:after {
+      bottom: 0;
+      border-radius: 50% 50% 25% 25%;
+      margin: 0 auto -10px;
+      left: 15%; }
+  .hourglass-box .line-right {
+    left: 50%;
+    margin-left: 18px; }
+    .hourglass-box .line-right:before {
+      top: 0;
+      border-radius: 25% 25% 50% 50%;
+      margin: -10px auto 0;
+      right: 15%; }
+    .hourglass-box .line-right:after {
+      bottom: 0;
+      border-radius: 50% 50% 25% 25%;
+      margin: 0 auto -10px;
+      right: 15%; }
+  .hourglass-box .line-center {
+    width: 36px;
+    height: 20px;
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    margin-left: -18px;
+    margin-top: -10px; }
+    .hourglass-box .line-center:before, .hourglass-box .line-center:after {
+      content: "";
+      width: 20px;
+      height: 20px;
+      display: block;
+      top: 0;
+      border: 3px solid #d8d8d8;
+      border-radius: 50%;
+      position: absolute; }
+    .hourglass-box .line-center:before {
+      left: -13px; }
+    .hourglass-box .line-center:after {
+      right: -13px; }
+  .hourglass-box:before, .hourglass-box:after {
+    content: "";
+    width: 100%;
+    height: 15px;
+    background-color: #d8d8d8;
+    position: absolute;
+    border-radius: 20px;
+    left: 0;
+    z-index: 10; }
+  .hourglass-box:before {
+    top: 0; }
+  .hourglass-box:after {
+    bottom: 0; }
+  .hourglass-box .drip-content {
+    position: absolute;
+    width: 50px;
+    height: 300px;
+    left: 50%;
+    top: 50%;
+    overflow: hidden;
+    border-radius: 50% 50% 0 0;
+    margin-left: -25px;
+    -webkit-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+            transform: scale(0.8);
+    margin-top: -40px;
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+    padding-bottom: 15px; }
+    .hourglass-box .drip-content .drip-box {
+      position: absolute;
+      display: block;
+      width: 100px;
+      left: 50%;
+      top: 20px;
+      margin-top: -20px;
+      margin-left: -50px; }
+      .hourglass-box .drip-content .drip-box svg {
+        -webkit-filter: url("#goo");
+                filter: url("#goo"); }
+      .hourglass-box .drip-content .drip-box .drop, .hourglass-box .drip-content .drip-box circle {
+        -webkit-animation: drop 1s cubic-bezier(0.7, 0, 1, 1) infinite;
+                animation: drop 1s cubic-bezier(0.7, 0, 1, 1) infinite; }
+
+@-webkit-keyframes drop {
+  0% {
+    -webkit-transform: translateY(-75px);
+            transform: translateY(-75px); }
+  100% {
+    -webkit-transform: translateY(1000px) scaleY(0.5);
+            transform: translateY(1000px) scaleY(0.5); } }
+
+@keyframes drop {
+  0% {
+    -webkit-transform: translateY(-75px);
+            transform: translateY(-75px); }
+  100% {
+    -webkit-transform: translateY(1000px) scaleY(0.5);
+            transform: translateY(1000px) scaleY(0.5); } }
+  .hourglass-box .hourglass-top, .hourglass-box .hourglass-bottom {
+    position: absolute;
+    width: 86%;
+    height: 50%;
+    overflow: hidden;
+    left: 50%;
+    z-index: 9; }
+  .hourglass-box .hourglass-top {
+    border-radius: 30% 30% 50% 50%;
+    margin: -20px auto;
+    margin-left: -43%;
+    top: 5px;
+    margin-bottom: 0; }
+  .hourglass-box .hourglass-bottom {
+    border-radius: 50% 50% 30% 30%;
+    margin: 0 auto;
+    bottom: -15px;
+    margin-left: -43%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+       -moz-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end; }
+    .hourglass-box .hourglass-bottom .waves {
+      bottom: 30px; }
+    .hourglass-box .hourglass-bottom .bottom-water {
+      background-color: #2c7fbe;
+      width: 100%;
+      height: 1%;
+      margin-bottom: 30px; }
+  .hourglass-box .waves {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    -webkit-transition: .4s transform ease;
+    transition: .4s transform ease;
+    -webkit-transform-origin: bottom center;
+        -ms-transform-origin: bottom center;
+            transform-origin: bottom center; }
+    @media (min-width: 500px) {
+      .hourglass-box .waves {
+        border-radius: 5px; } }
+  .hourglass-box .wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-animation: wave 1s linear infinite;
+            animation: wave 1s linear infinite; }
+    .hourglass-box .wave--front {
+      z-index: 2;
+      color: #32BAFA; }
+    .hourglass-box .wave--back {
+      z-index: 1;
+      color: #2C7FBE;
+      -webkit-animation-direction: reverse;
+              animation-direction: reverse; }
+  .hourglass-box .water {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    background: currentColor; }
+    .hourglass-box .water svg {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      right: 0;
+      bottom: 99.9%; }
+  .hourglass-box .water:first-of-type {
+    -webkit-transform: translate(-100%, 0);
+        -ms-transform: translate(-100%, 0);
+            transform: translate(-100%, 0); }
+
+@-webkit-keyframes wave {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0); }
+  50% {
+    -webkit-transform: translate3d(50%, 0.5em, 0);
+            transform: translate3d(50%, 0.5em, 0); }
+  100% {
+    -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0); } }
+
+@keyframes wave {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0); }
+  50% {
+    -webkit-transform: translate3d(50%, 0.5em, 0);
+            transform: translate3d(50%, 0.5em, 0); }
+  100% {
+    -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0); } }
