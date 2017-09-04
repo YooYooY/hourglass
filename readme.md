@@ -1,7 +1,7 @@
 ## Hourglass
 
 
-[Hourglass](http://youyoucuocuo.top/shalou/html)
+http://youyoucuocuo.top/shalou/html
 [demo](http://youyoucuocuo.top/shalou/html/demo.html)
 
 A jQuery plugin.
