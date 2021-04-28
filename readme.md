@@ -1,11 +1,11 @@
 ## Hourglass
 
 
-http://youyoucuocuo.top/shalou/html
+https://yooyooy.github.io/hourglass/src/html/index.html
 
 ---
 
-[demo](http://youyoucuocuo.top/shalou/html/demo.html)
+[demo](https://yooyooy.github.io/hourglass/src/html/demo.html)
 
 A jQuery plugin.
 
